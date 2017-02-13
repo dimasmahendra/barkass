@@ -1,0 +1,18 @@
+.detilpenitip {
+	text-align: left;
+	float: left;
+}
+
+.detilpenitip>tbody>tr>td{
+	padding: 6px;
+    line-height: 0.5;    
+}
+
+.detilnomorpenitip {
+	float: right;
+}
+
+.detilnomorpenitip>tbody>tr>td{
+	padding: 6px;
+    line-height: 0.5;
+}
