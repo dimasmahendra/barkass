@@ -63,10 +63,10 @@ class Produk extends MY_Controller {
             'kategori_id'       => $this->input->post('kategori_id'),
             'nama'              => $this->input->post('nama'),
             'berat'             => $this->input->post('berat'),
-            'hargajual'         => $this->input->post('hargajual')         
+            'hargajual'         => $this->input->post('hargajual'),       
+            'status'            => 'aktif'       
         );    
         //print_r($jsonData);die();
-
         $jsonDataEncoded = json_encode($jsonData);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
@@ -126,21 +126,20 @@ class Produk extends MY_Controller {
     public function updateProdukBarkas()
     {   
         $session_data   = $this->session->userdata('logged_in');
-        $url = URL_API.'updatePenitipBarkas';
+        $url = URL_API.'updateprodukbarkas';
         $ch = curl_init($url);
-        $id = $this->uri->segment(3);
         
         $jsonData = array(
             'session_key'   => $session_data['session_key'],
-            'id'            => $id,
+            'id'            => $this->input->post('id'),
             'penitip_id'    => $this->input->post('penitip_id'),
             'kategori_id'   => $this->input->post('kategori_id'),
             'nama'          => $this->input->post('nama'),
             'berat'         => $this->input->post('berat'),
-            'hargajual'     => $this->input->post('hargajual')
+            'hargajual'     => $this->input->post('hargajual'),
+            'status'        => $this->input->post('status')
         );    
-        print_r($jsonData);die();
-
+        
         $jsonDataEncoded = json_encode($jsonData);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
@@ -149,18 +148,52 @@ class Produk extends MY_Controller {
         $result = curl_exec($ch);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_close($ch);
-        $hasil    = json_decode($result, true);     
-        //print_r($hasil);die();
+        $hasil    = json_decode($result, true); 
         if ($hasil['status'] == '1') 
         {    
             $this->session->set_flashdata('success', 'Data Berhasil di update'); 
-            redirect('Penitip/daftarPenitipBarkas','refresh');
+            redirect('Produk/daftarProduk','refresh');
         }
         else
         {
             $this->session->set_flashdata('message', 'Data gagal di update');
-            redirect('Penitip/daftarPenitipBarkas','refresh');
+            redirect('Produk/daftarProduk','refresh');
         }   
     }
+
+    public function hapusProduk()
+    {
+        $session_data   = $this->session->userdata('logged_in');        
+        $url = URL_API.'deleteproduk';
+        $ch = curl_init($url);
+        $id = $this->uri->segment(3);
+      
+        $jsonData = array(      
+            'id'            => $id,
+            'session_key'   => $session_data['session_key']
+        );        
+
+        $jsonDataEncoded = json_encode($jsonData);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_FAILONERROR, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);     
+        $result = curl_exec($ch);
+        curl_close($ch);        
+        $hasil    = json_decode($result, true);
+
+        if ($hasil['status'] == '1') 
+        {    
+            $this->session->set_flashdata('success', 'Produk berhasil di hapus'); 
+            redirect('Produk/daftarProduk','refresh');
+        }
+        else
+        {
+            $this->session->set_flashdata('message', 'Produk gagal di hapus');
+            redirect('Produk/daftarProduk','refresh');
+        }  
+    }  
 }
 ?>

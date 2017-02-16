@@ -54,7 +54,7 @@
 							  <td><?php echo "Rp ".format_rupiah($row['hargajual']); ?></td>
 							  <td>
 							  	<a class="btn-sm btn-warning" href ="<?= base_url('Produk/editProduk') ?>/<?php echo $row['id']?>">Edit</a>
-							  	<a class="btn-sm btn-danger" href ="<?= base_url('Produk/detilProduk') ?>/<?php echo $row['id']?>">Hapus</a>
+							  	<a class="btn-sm btn-danger" href ="<?= base_url('Produk/hapusProduk') ?>/<?php echo $row['id']?>">Hapus</a>
 							  </td>
 							</tr>
 						<?php } ?>            

@@ -17,6 +17,7 @@
             </div>
             <form id="tambahpenitip" class="form-horizontal" enctype="multipart/form-data" method="POST" action="<?php echo base_url(); ?>Produk/updateProdukBarkas">
               <div class="box-body">
+                <input type="hidden" name="id" id="id" value="<?php echo $this->uri->segment(3); ?>">
                 <div class="box-body">                  
                   <div class="form-group">
                     <label class="control-label col-sm-2">Nama Penitip</label>
@@ -69,7 +70,20 @@
                       <input type="text" class="form-control" id="hargajual" name="hargajual" value="<?php echo $hasil['data']['hargajual'];?>">
                     </div>                    
                   </div>
-                </div>                       
+                </div>  
+                <div class="box-body">                  
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Status Barang</label>
+                    <div class="col-md-2">
+                      <select name="status" class="form-control" id="status">
+                          <option value="aktif">Aktif</option>
+                          <option value="tidak aktif">Tidak Aktif</option>
+                          <option value="terjual">Terjual</option>
+                          <option value="return">Return</option>
+                      </select>
+                    </div>                    
+                  </div>
+                </div>                     
                 <div class="box-footer">           
                   <div class="pull-right">
                     <button class="btn btn-default"><a href="<?php echo base_url(); ?>Dashboard/index" id="cancelInput">Batal</a></button>
