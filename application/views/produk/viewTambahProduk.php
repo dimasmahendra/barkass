@@ -27,7 +27,16 @@
                               <option value="<?php echo $row['id'];?>"><?php echo $row['nama'] ?></option>
                           <?php } ?>
                       </select>
-                    </div>                   
+                    </div> 
+                    <label class="control-label col-sm-1">Lokasi</label>
+                    <div class="col-md-2">
+                      <select name="lokasi_id" class="form-control" id="lokasi_id">
+                          <option value="">- Pilih Lokasi -</option>
+                          <option value="1">Jakarta</option>
+                          <option value="2">Yogyakarta</option>
+                          <option value="3">Semarang</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div class="box-body">                  

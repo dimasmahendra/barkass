@@ -35,6 +35,7 @@
 						<tr>
 						  <th>No</th>                 
 						  <th>Nama Penitip</th>              
+						  <th>No Penitip</th>              
 						  <th>Nama Barang</th>
 						  <th>Berat</th> 
 						  <th>Harga Jual</th>
@@ -49,6 +50,7 @@
 							<tr>
 							  <td><?php echo $no;$no++; ?></td>
 							  <td><?php echo $row['namapenitip']; ?></td> 
+							  <td><?php echo $row['unikid']; ?></td> 
 							  <td><?php echo $row['nama']; ?></td>
 							  <td><?php echo $row['berat']; ?></td>
 							  <td><?php echo "Rp ".format_rupiah($row['hargajual']); ?></td>

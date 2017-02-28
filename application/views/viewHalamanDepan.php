@@ -19,16 +19,17 @@
     }
   </style>
 </head>
-<body class="sidebar-mini wysihtml5-supported skin-green-light">
+<body class="sidebar-mini wysihtml5-supported skin-green-light <?php if(activate_menu('Transaksi')) { echo "sidebar-collapse";} ?>">
 <header class="main-header">
   <!-- Logo -->
   <a href="<?= base_url('')?>Dashboard/index" class="logo">
-    <img src="<?= base_url('assets/images/logo.png') ?>" alt="logosmartlocation" style="width:200px; height:30px">
+    <?php if(activate_menu('Transaksi')) { echo " ";}
+    else { ?> 
+      <img src="<?= base_url('assets/images/logo.png') ?>" alt="logosmartlocation" style="width:200px; height:30px">
+    <?php }?>    
   </a>
-
-  <!-- Header Navbar: style can be found in header.less -->
+  
   <nav class="navbar navbar-static-top">
-    <!-- Sidebar toggle button-->
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
     </a>
@@ -91,11 +92,18 @@
           </a>
         </li>
 
+        <li class="<?php echo activate_menu('Transaksi'); ?>">
+          <a href="<?= base_url('Transaksi/index') ?>">
+            <i class="fa fa-tags"></i> <span>Transaksi</span>            
+          </a>
+        </li>
+
     </ul>
   </section>
   <!-- /.sidebar -->
 </aside>
 <script src="<?= base_url('assets/js/jQuery/jQuery-2.2.0.min.js') ?>" rel="stylesheet"></script>
+<script src="<?= base_url('assets/js/bootstrap/bootstrap.min.js') ?>" rel="stylesheet"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="<?= base_url('assets/js/bootstrapValidator/bootstrapValidator.js') ?>" rel="stylesheet"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
