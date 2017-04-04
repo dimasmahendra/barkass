@@ -19,7 +19,7 @@
     }
   </style>
 </head>
-<body class="sidebar-mini wysihtml5-supported skin-green-light <?php if(activate_menu('Transaksi')) { echo "sidebar-collapse";} ?>">
+<body class="skin-green-light <?php if(activate_menu('Transaksi')) { echo "sidebar-collapse";} ?> sidebar-mini">
 <header class="main-header">
   <!-- Logo -->
   <a href="<?= base_url('')?>Dashboard/index" class="logo">
@@ -103,7 +103,8 @@
   <!-- /.sidebar -->
 </aside>
 <script src="<?= base_url('assets/js/jQuery/jQuery-2.2.0.min.js') ?>" rel="stylesheet"></script>
-<script src="<?= base_url('assets/js/bootstrap/bootstrap.min.js') ?>" rel="stylesheet"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="<?= base_url('assets/js/bootstrap/bootstrap.min.js') ?>" rel="stylesheet"></script>
+<script src="<?= base_url('assets/js/admin/app.min.js') ?>" rel="stylesheet"></script>
 <script src="<?= base_url('assets/js/bootstrapValidator/bootstrapValidator.js') ?>" rel="stylesheet"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>

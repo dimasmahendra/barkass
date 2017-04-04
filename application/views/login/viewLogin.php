@@ -5,7 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Log in | Login Merchand</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
- 
+  <style type="text/css">
+    .inputGroupContainer .form-control-feedback {
+      top: 0px !important;
+      right: 10px !important;
+  }
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -34,9 +39,9 @@
       <div class="form-group has-feedback">
         <input name="password" id="password" type="password" class="form-control" placeholder="Password" required>       
       </div>
-      <div class="form-group">
-        <select class="form-control" id="level" name="level">
-          <option>- Pilih Masuk Sebagai -</option>
+      <div class="form-group inputGroupContainer">
+        <select class="form-control" id="level" name="level" required>
+          <option value="">- Pilih Masuk Sebagai -</option>
           <option value="admin">Admin</option>
           <option value="gudang">Gudang</option>
         </select>

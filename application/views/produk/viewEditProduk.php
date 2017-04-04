@@ -83,7 +83,24 @@
                       </select>
                     </div>                    
                   </div>
-                </div>                     
+                </div> 
+                <!-- <div class="box-body">                  
+                  <div class="form-group">
+                    <?php if($foto ==''|$foto =='no_image.png'){ ?>
+                    <img src="<?php echo URL_IMG ?>images/no_image.png" rel="stylesheet" class="img-responsive" alt="Cinque Terre">
+                    <?php } else { ?>                
+                    <img src ="<?php echo URL_IMG ?>images/anggotakoperasi/<?php echo $foto; ?>" rel="stylesheet" class="img-responsive" alt="Cinque Terre">
+                    <?php  } ?>                      
+                  </div>
+                </div>   -->
+                <div class="box-body">                  
+                  <div class="form-group">
+                     <label class="control-label col-sm-2">Foto</label>
+                      <div class="col-md-3">
+                        <input name="foto" type="file" id="foto" class="form-control">
+                      </div>                     
+                  </div>
+                </div>                                
                 <div class="box-footer">           
                   <div class="pull-right">
                     <button class="btn btn-default"><a href="<?php echo base_url(); ?>Dashboard/index" id="cancelInput">Batal</a></button>

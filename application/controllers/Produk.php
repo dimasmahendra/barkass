@@ -53,6 +53,14 @@ class Produk extends MY_Controller {
 
     public function tambahProduk()
     {   
+        $cek = $_FILES['foto']['tmp_name']; 
+        if ($cek =="") {
+            $foto = "";
+        }
+        else if ($cek != '') {
+            $foto = new CurlFile($_FILES['foto']['tmp_name'], $_FILES['foto']['type'], $_FILES['foto']['name']);
+        }
+        $header = array('Content-Type: multipart/form-data');
         $session_data   = $this->session->userdata('logged_in');
         $url = URL_API.'insertprodukbarkas';
         $ch = curl_init($url);  
@@ -65,19 +73,23 @@ class Produk extends MY_Controller {
             'berat'             => $this->input->post('berat'),
             'hargajual'         => $this->input->post('hargajual'),       
             'lokasi_id'         => $this->input->post('lokasi_id'),       
-            'status'            => 'aktif'       
+            'status'            => 'aktif',
+            'foto'              => $foto            
         );    
         
-        $jsonDataEncoded = json_encode($jsonData);
+        //print_r($jsonData);die();
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_FAILONERROR, true);
+        curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $result = curl_exec($ch);
+        $result = curl_exec($ch);        
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);       
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_close($ch);
-        $hasil    = json_decode($result, true);     
-    
+        $hasil = json_decode($result, true);  
+        
         if ($hasil['status'] == '1') 
         {    
             $this->session->set_flashdata('success', 'Data Berhasil di tambahkan'); 

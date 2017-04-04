@@ -78,7 +78,15 @@
                       <input type="text" class="form-control" id="hargajual" name="hargajual">
                     </div>                    
                   </div>
-                </div>                       
+                </div>  
+                <div class="box-body">                  
+                  <div class="form-group">
+                     <label class="control-label col-sm-2">Foto</label>
+                      <div class="col-md-3">
+                        <input name="foto" type="file" id="foto" class="form-control">
+                      </div>                     
+                  </div>
+                </div>                      
                 <div class="box-footer">           
                   <div class="pull-right">
                     <button class="btn btn-default"><a href="<?php echo base_url(); ?>Dashboard/index" id="cancelInput">Batal</a></button>

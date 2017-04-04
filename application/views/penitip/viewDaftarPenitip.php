@@ -1,7 +1,6 @@
 <link href="<?= base_url('assets/css/tabel/jquery.dataTables.min.css') ?>" rel="stylesheet">
 <link href="<?= base_url('assets/css/tabel/select.dataTables.css') ?>" rel="stylesheet">
 
-<script src="<?= base_url('assets/js/jQuery/jquery-2.2.0.min.js') ?>" rel="stylesheet"></script>
 <script src="<?= base_url('assets/js/tabel/jquery.dataTables.min.js') ?>" rel="stylesheet"></script>
 <script src="<?= base_url('assets/js/tabel/dataTables.bootstrap.min.js') ?>" rel="stylesheet"></script>
 <script src="<?= base_url('assets/js/tabel/dataTables.select.js') ?>" rel="stylesheet"></script>
@@ -234,7 +233,7 @@
 		</div>  
 	 </section>
   </div>
-<script src="<?= base_url('assets/js/bootstrap/bootstrap.min.js') ?>" rel="stylesheet"></script>
+
 <script type="text/javascript">
   $(document).ready(function() {
 	 var table = $('#tabelPenitip').DataTable();
